@@ -1,5 +1,7 @@
 package com.debuggeando_ideas.fundamentals;
 
+import java.util.List;
+
 public class App {
 
     public static void main(String[] args) {
@@ -7,6 +9,26 @@ public class App {
         DatabaseService postgres = new PostgresDB();
         System.out.println(mongo.getById(10L));
         System.out.println(postgres.getById(10L));
+
+        System.out.println(Product.class.getName());
+        System.out.println(Employee.class.getName());
+        System.out.println(String.class.getName());
+
+        DatabaseService<String> dbAnonimo = new DatabaseService<String>() {
+            @Override
+            public String getById(Long id) {
+                return "Clase anonima";
+            }
+
+            @Override
+            public List<String> getAllRecords() {
+                return List.of("Clase anonima","implementada");
+            }
+        };
+        System.out.println(dbAnonimo.getClass().getName());
+
+
+
     }
 
 }

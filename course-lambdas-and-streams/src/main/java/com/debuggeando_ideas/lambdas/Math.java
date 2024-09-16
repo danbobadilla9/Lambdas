@@ -2,8 +2,15 @@ package com.debuggeando_ideas.lambdas;
 
 @FunctionalInterface
 public interface Math {
+// por ley todas las interfaces funcionales necesitan un metodo abstracto
 
-    Double excecute(Double a, Double b);
 
-    default Double sum(Double a, Double b) { return  a + b; }
+    abstract Double execute(Double a, Double b);
+
+    default Double suma(Double a, Double b){
+        return a + b;
+    }
+
+
+
 }
